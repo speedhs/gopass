@@ -58,8 +58,6 @@ This project is still under development. Use at your own risk. The authors are n
 
 ## Contact
 
-## Contact
-
 For any questions or suggestions, please feel free to reach out to me on [Twitter](https://twitter.com/dizzyspeeed).
 
 Enjoy secure password management with GoPass!
