@@ -66,5 +66,3 @@ Enjoy secure password management with GoPass!
 
 
 ---
-
-Feel free to modify and personalize this README template to best suit your project. Make sure to provide clear instructions for installation, usage, and contribution. Additionally, ensure that you've included the necessary information about licenses, acknowledgments, and any disclaimers.
