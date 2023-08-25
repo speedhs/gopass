@@ -85,24 +85,26 @@ func connectDb() {
 func main() {
 	connectDb()
 	mainMenu()
-	choice := getUserChoice()
-	switch choice {
-	case 1:
-		fmt.Println("Adding a new password...")
-	case 2:
-		fmt.Println("Retrieving a password...")
-	case 3:
-		fmt.Println("Updating a password...")
-	case 4:
-		fmt.Println("Deleting a password...")
-	case 5:
-		fmt.Println("Generating password...")
-	case 6:
-		fmt.Println("Password Policy")
-	case 7:
-		fmt.Println("Exiting the password manager.")
-		os.Exit(0)
-	default:
-		fmt.Println("Invalid choice. Please select a valid option.")
+	for true {
+		choice := getUserChoice()
+		switch choice {
+		case 1:
+			fmt.Println("Adding a new password...")
+		case 2:
+			fmt.Println("Retrieving a password...")
+		case 3:
+			fmt.Println("Updating a password...")
+		case 4:
+			fmt.Println("Deleting a password...")
+		case 5:
+			fmt.Println("Generating password...")
+		case 6:
+			fmt.Println("Password Policy")
+		case 7:
+			fmt.Println("Exiting the password manager...")
+			os.Exit(0)
+		default:
+			fmt.Println("Invalid choice. Please select a valid option.")
+		}
 	}
 }
