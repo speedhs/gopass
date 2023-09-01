@@ -1,4 +1,4 @@
-module dependencies
+module gopass
 
 go 1.18
 
