@@ -8,13 +8,6 @@ import (
 	com "gopass/components"
 )
 
-type data struct {
-	platform string
-	username string
-	pass     string
-}
-
-
 
 func main() {
 	com.ConnectDb()
@@ -24,6 +17,7 @@ func main() {
 		switch choice {
 		case 1:
 			fmt.Println("Adding a new password...")
+			com.AddInfo()
 		case 2:
 			fmt.Println("Retrieving a password...")
 		case 3:

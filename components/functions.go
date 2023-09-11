@@ -1,21 +1,35 @@
+// components/functions.go
+
 package components
 
-import(
-	"fmt"
-	
+import (
+    "fmt"
+    "context"
+    // "go.mongodb.org/mongo-driver/mongo"
 )
 
-func AddInfo(){
-	platform := GetUserInfo("Enter the platform name: ")
-    username := GetUserInfo("Enter the username: ")
-    password := GetUserInfo("Enter the password: ")
+// Book represents a book entity.
+type Book struct {
+    Title  string `json:"title"`
+    Author string `json:"author"`
+    // Add other fields as needed, such as publication year, genre, etc.
+}
 
-    // Here you can store or process the platform, username, and password as needed
-    // For example, you can save them to a file, store them in a database, or perform encryption
+// AddInfo adds information to the MongoDB database.
+func AddInfo() {
+    if client == nil {
+        fmt.Println("MongoDB client is nil")
+        return
+    }
+    coll := client.Database("Books").Collection("books")
+    doc := Book{Title: "Atonent", Author: "Ian McEwan"}
 
-    // Example: Print the entered data
-    fmt.Println("You entered the following information:")
-    fmt.Printf("Platform: %s\n", platform)
-    fmt.Printf("Username: %s\n", username)
-    fmt.Printf("Password: %s\n", password)
+    result, err := coll.InsertOne(context.TODO(), doc)
+    if err != nil {
+        fmt.Println("Error inserting document:", err)
+        return
+    }
+    fmt.Printf("Inserted document with _id: %v\n", result.InsertedID)
+    
+    // Now you can continue with your user input and data processing logic
 }
