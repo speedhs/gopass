@@ -9,6 +9,7 @@ import (
 )
 
 
+
 func main() {
 	com.ConnectDb()
 	com.MainMenu()
@@ -20,6 +21,7 @@ func main() {
 			com.AddInfo()
 		case 2:
 			fmt.Println("Retrieving a password...")
+			com.PrintUsernameAndPassword()
 		case 3:
 			fmt.Println("Updating a password...")
 		case 4:

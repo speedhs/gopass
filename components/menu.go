@@ -4,24 +4,25 @@ import (
 	"fmt"
 )
 
+
 func prinLogo() {
-	fmt.Println(`
+	fmt.Println(Purple+`
    ____   _      _____  
   / ___| | |    | ____| 
  | |  _  | |    | |__   
  | |_| | | |___ |  __|  
   \____| |_____||_|
-	`)
+	`+Reset)
 }
 func showOptions() {
-	fmt.Println("CLI Password Manager")
-	fmt.Println("1. Add Password")
-	fmt.Println("2. Retrieve Password")
-	fmt.Println("3. Update Password")
-	fmt.Println("4. Delete Password")
-	fmt.Println("5. Generate Password")
-	fmt.Println("6. Password Policy")
-	fmt.Println("7. Exit")
+	fmt.Println(Purple+"CLI Password Manager")
+	fmt.Println(Purple+"1. Add Password"+Reset)
+	fmt.Println(Purple+"2. Retrieve Password"+Reset)
+	fmt.Println(Purple+"3. Update Password"+Reset)
+	fmt.Println(Purple+"4. Delete Password"+Reset)
+	fmt.Println(Purple+"5. Generate Password"+Reset)
+	fmt.Println(Purple+"6. Password Policy"+Reset)
+	fmt.Println(Red+"7. Exit"+Reset)
 }
 func MainMenu() {
 	prinLogo()

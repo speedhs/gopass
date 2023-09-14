@@ -7,12 +7,13 @@ import(
 	"strings"
 )
 
+
 func GetUserChoice() int {
 	var choice int
-	fmt.Print("Enter your choice: ")
+	fmt.Print(Cyan+"Enter your choice: "+Reset)
 	_, err := fmt.Scanf("%d", &choice)
 	if err != nil {
-		fmt.Println("Invalid input. Please enter a valid number.")
+		fmt.Println(Red+"Invalid input. Please enter a valid number."+Reset)
 		return -1
 	}
 	return choice
