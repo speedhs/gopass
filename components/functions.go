@@ -106,3 +106,59 @@ func PrintUsernameAndPassword() {
         return
     }
 }
+
+func UpdatePassword() {
+    if client == nil {
+        fmt.Println("MongoDB client is nil")
+        return
+    }
+
+    // Specify the collection name (replace "dummy" with your collection name)
+    collectionName := "1"
+
+    // Get the collection
+    coll := client.Database("dummy").Collection(collectionName)
+    platformToSearch := GetUserInfo(Blue+"Enter the platform name: "+Reset)
+    // Define a filter to find the document by platform name
+    filter := bson.M{"platform": platformToSearch}
+    newPassword := GetUserInfo(Blue+"Enter new password: "+Reset)
+    // Define an update to set the new password
+    update := bson.M{"$set": bson.M{"password": newPassword}}
+
+    // Perform the update operation
+    _, err := coll.UpdateOne(context.TODO(), filter, update)
+    if err != nil {
+        fmt.Println("Error updating password:", err)
+    }
+
+    fmt.Printf("Password for platform '%s' updated successfully.\n", platformToSearch)
+}
+
+// components/functions.go
+
+// DeletePassword deletes a password document from the MongoDB collection based on a predefined condition.
+func DeletePassword() {
+    if client == nil {
+        fmt.Println("MongoDB client is nil")
+        return
+    }
+
+    // Specify the collection name (replace "dummy" with your collection name)
+    collectionName := "1"
+
+    // Get the collection
+    coll := client.Database("dummy").Collection(collectionName)
+    platformToSearch := GetUserInfo(Blue+"Enter the platform name: "+Reset)
+    
+    // Define a condition to match the document you want to delete (e.g., based on platform name)
+    condition := bson.M{"platform": platformToSearch}
+
+    // Perform the delete operation
+    _, err := coll.DeleteOne(context.TODO(), condition)
+    if err != nil {
+        fmt.Println("Error deleting password:", err)
+        return
+    }
+
+    fmt.Println("Password deleted successfully.")
+}

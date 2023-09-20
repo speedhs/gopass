@@ -24,8 +24,10 @@ func main() {
 			com.PrintUsernameAndPassword()
 		case 3:
 			fmt.Println("Updating a password...")
+			com.UpdatePassword()
 		case 4:
 			fmt.Println("Deleting a password...")
+			com.DeletePassword()
 		case 5:
 			fmt.Println("Generating password...")
 		case 6:
