@@ -7,6 +7,7 @@ import (
     "context"
     "go.mongodb.org/mongo-driver/bson" // Import the bson package
     "time" // Import the time package
+    "math/rand"
     // "go.mongodb.org/mongo-driver/mongo"
 	// "go.mongodb.org/mongo-driver/bson"
     // "go.mongodb.org/mongo-driver/bson/primitive"
@@ -161,4 +162,36 @@ func DeletePassword() {
     }
 
     fmt.Println("Password deleted successfully.")
+}
+
+const (
+    letterBytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    digitBytes  = "0123456789"
+    specialChars = "!@#$%^&*()-_=+[]{}|;:'\",.<>/?`~"
+    passwordLength = 12
+)
+
+// GenerateRandomPassword generates a random password with a predefined length and character set.
+func GenerateRandomPassword() string {
+    rand.Seed(time.Now().UnixNano())
+
+    // Combine all character sets
+    allChars := letterBytes + digitBytes + specialChars
+
+    password := make([]byte, passwordLength)
+    for i := range password {
+        password[i] = allChars[rand.Intn(len(allChars))]
+    }
+    
+    return string(password)
+}
+
+
+func PrintPasswordPolicy() {
+    fmt.Println("Password Policy:")
+    fmt.Println("- Length: 12 characters")
+    fmt.Println("- Must include at least one lowercase letter")
+    fmt.Println("- Must include at least one uppercase letter")
+    fmt.Println("- Must include at least one digit (0-9)")
+    fmt.Println("- Must include at least one special character (!@#$%^&*()-_=+[]{}|;:'\",.<>/?`~)")
 }

@@ -30,8 +30,10 @@ func main() {
 			com.DeletePassword()
 		case 5:
 			fmt.Println("Generating password...")
+			fmt.Println(com.GenerateRandomPassword())
 		case 6:
 			fmt.Println("Password Policy")
+			com.PrintPasswordPolicy()
 		case 7:
 			fmt.Println("Exiting the password manager...")
 			os.Exit(0)
